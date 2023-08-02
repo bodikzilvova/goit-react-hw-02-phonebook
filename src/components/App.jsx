@@ -30,7 +30,7 @@ export class App extends Component {
 
 
   render() {
-const { contacts, name } = this.state;
+const { contacts } = this.state;
 console.log(contacts)
 
     return (
