@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-export const NameFormFlex = styled.form`
+export const ContactFormStyle = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;

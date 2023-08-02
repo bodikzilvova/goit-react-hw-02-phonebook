@@ -1,7 +1,8 @@
 import { Component } from "react"
 import { Container } from "./Container/Container"
-import { NameForm } from "./NameForm/NameForm";
 import { ContactList } from "./ContactList/ContactList";
+import { ContactForm } from "./ContactForm/ContactForm";
+import { nanoid } from 'nanoid';
 
 export class App extends Component {
 
@@ -14,29 +15,30 @@ export class App extends Component {
     this.setState({
       [target.name]: target.value,
     })
-    console.log(target.value)
    }
 
-  handleSubmit = (e) => {
+   handleSubmit = (e) => {
     e.preventDefault();
-    const updatedContacts = [...this.state.contacts];
-    updatedContacts.push(this.state.name);
 
-    this.setState({
-      contacts: updatedContacts,
+    const newContact = {
+      id: nanoid(),
+      name: this.state.name
+    };
+   
+    this.setState(prevstate =>({
+      contacts: [...prevstate.contacts, newContact],
       name: ''
-    });
+    })
+    );
   }
-
 
   render() {
 const { contacts } = this.state;
-console.log(contacts)
 
     return (
     <Container>
       <h1>Phonebook</h1>
-      <NameForm onSubmit={this.handleSubmit}>
+      <ContactForm onSubmit={this.handleSubmit}>
         <label>
           Name
       <input
@@ -50,7 +52,7 @@ console.log(contacts)
     />
     </label>
     <button type="submit" >Add contact</button>
-    </NameForm>
+    </ContactForm>
     <section>
       <h2>Contacts</h2>
       <ContactList contacts={contacts} />
