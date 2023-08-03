@@ -17,10 +17,10 @@ export class App extends Component {
   };
 
   handleFormSubmit = ({ name, number }) => {
-    const existingContact = this.state.contacts.find(contact =>
-      contact.name.toLowerCase() === name.toLowerCase()
+    const existingContact = this.state.contacts.find(
+      contact => contact.name.toLowerCase() === name.toLowerCase()
     );
-  
+
     if (existingContact) {
       alert(`${name} is already in contacts`);
     } else {
@@ -29,7 +29,7 @@ export class App extends Component {
         name: name,
         number: number,
       };
-  
+
       this.setState(prevState => ({
         contacts: [...prevState.contacts, newContact],
       }));

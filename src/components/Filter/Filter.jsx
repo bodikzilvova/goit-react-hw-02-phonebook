@@ -16,3 +16,7 @@ export const Filter = ({ handleFilterByName, filter }) => {
     </FilterLabel>
   );
 };
+
+Filter.propTypes = {
+  handleFilterByName: PropTypes.func.isRequired,
+};
