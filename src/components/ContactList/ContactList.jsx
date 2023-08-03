@@ -3,6 +3,7 @@ import {
   ContactListItem,
   ButtonDelete,
 } from './ContactList.styled';
+import PropTypes from 'prop-types';
 
 export const ContactList = ({ contacts, onDeleteContact }) => {
   return (
